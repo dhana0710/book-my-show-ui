@@ -2,15 +2,21 @@
 //HOC
 import DefaultHOC from "./HOC/Default.HOC";
 
-//components
-import Temp from "./components/temp";
+//pages
+import HomePage from "./pages/Home.page";
+
+
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 
 
 const App = () => {
   return (
     <>
-      <DefaultHOC path="/" exact component={Temp} />
+      <DefaultHOC path="/" exact component={HomePage} />
     </>
   );
 }

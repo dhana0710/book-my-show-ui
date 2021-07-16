@@ -39,7 +39,7 @@ const NavMd = () => {
 const NavLg = () => {
     return (
         <>
-            <div className="container mx-auto px-20 flex items-center justify-between">
+            <div className="container mx-auto px-4 xl:px-20 flex items-center justify-between">
                 <div className="flex items-center w-1/2 gap-3">
                     <div className="w-12 h-12">
                         <img
