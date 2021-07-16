@@ -1,73 +1,19 @@
 import React from 'react'
 import Slider from 'react-slick';
 
-
-
-
 //component
 import Poster from '../Poster/poster.component';
 
-
 //config 
 import PremierCarousalSettings from '../../config/PosterCarousel.config';
+import PremierImage from '../../config/TempPosters.config';
+
 
 const Premier = () => {
 
-
-    const PremierImage = [
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-        {
-            src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122511-epjvjxmnab-portrait.jpg",
-            alt: "Zack",
-            title: "King Kong",
-            subtitle: "english"
-        },
-    ]
-
     return (
         <>
-            <div className="flex flex-col item-start text-white ">
+            <div className="flex flex-col item-start text-white md:ml-2 ">
                 <h3 className="text-xl font-bold">
                     Premiers
                 </h3>
