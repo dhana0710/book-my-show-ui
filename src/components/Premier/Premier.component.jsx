@@ -5,11 +5,43 @@ import Slider from 'react-slick';
 import Poster from '../Poster/poster.component';
 
 //config 
-import PremierCarousalSettings from '../../config/PosterCarousel.config';
+//import PremierCarousalSettings from '../../config/PosterCarousel.config';
 import PremierImage from '../../config/TempPosters.config';
 
 
 const Premier = () => {
+    const settings = {
+        infinite: false,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+            },
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2,
+            },
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            },
+        },
+        ],
+    };
+
 
     return (
         <>
@@ -21,7 +53,7 @@ const Premier = () => {
                     Brand new release every Friday
                 </p>
             </div>
-            <Slider {...PremierCarousalSettings}>
+            <Slider {...settings}>
                 {PremierImage.map((image) => (
                     <Poster {...image} isDark="true" />
                 ))}

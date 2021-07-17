@@ -23,8 +23,11 @@ const settings = {
         {
             breakpoint: 480,
             settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
+                slidesToShow: 3,
+                slidesToScroll: 2,
+                infinite: true,
+                //centerPadding: "100px",
+
             },
         },
     ],

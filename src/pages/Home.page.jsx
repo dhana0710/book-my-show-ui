@@ -4,7 +4,7 @@ import React from "react";
 import EntertainmentCardSlider from "../components/Entertainment/Entertainmentcard.component";
 import PosterSlider from "../components/PosterSlider/PosterSlider.components";
 
-//import Premier from "../components/Premier/Premier.component";
+import Premier from "../components/Premier/Premier.component";
 
 //config
 import TempPoster from "../config/TempPosters.config";
@@ -28,13 +28,13 @@ const HomePage = () => {
                                 className="w-full h-full"
                             />
                         </div>
-                        {/*<Premier />*/}
-                        <PosterSlider
+                        <Premier />
+                        {/*<PosterSlider
                             images={TempPoster}
                             title="Premieres"
                             subTitle="Brand new release every friday"
                             isDark={true}
-                        />
+                        />*/}
                     </div>
                 </div>
             </div>
