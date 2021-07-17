@@ -22,8 +22,6 @@ const NavSm = () => {
 
 };
 
-
-
 const NavLg = () => {
     return (
         <>
@@ -60,12 +58,12 @@ const NavLg = () => {
 const MovieNavbar = () => {
     return (
         <>
-            <nav className="absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative lg:bg-bms-700 p-4">
+            <nav className="absolute inset-x-0 z-30 bg-opacity-20 backdrop-filter backdrop-blur-lg lg:relative lg:bg-bms-700 p-4">
                 <div className="md:hidden">
                     {/*{Mobile Screen}*/}
                     <NavSm />
                 </div>
-                <div className="hidden md:flex lg:hidden">
+                <div className="hidden md:block lg:hidden">
                     <NavSm />
                 </div>
                 <div className="hidden w-full lg:flex">
