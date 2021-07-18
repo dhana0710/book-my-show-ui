@@ -11,6 +11,7 @@ import PremierCarousalSettings from '../../config/PosterCarousel.config';
 
 
 const PosterSlider = (props) => {
+    const sliderConfig = props.config ? props.config : PremierCarousalSettings;
     return (
         <>
             <div className="flex flex-col gap-2">
@@ -22,7 +23,7 @@ const PosterSlider = (props) => {
                         {props.subTitle}
                     </p>
                 </div>
-                <Slider {...PremierCarousalSettings}>
+                <Slider {...sliderConfig}>
                     {props.images.map((image) => (
                         <Poster {...image} isDark={props.isDark} />
                     ))}
