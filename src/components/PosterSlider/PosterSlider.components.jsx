@@ -23,14 +23,13 @@ const PosterSlider = (props) => {
                         {props.subTitle}
                     </p>
                 </div>
-                <Slider {...sliderConfig}>
-                    {props.images.map((image) => (
-                        <Poster {...image} isDark={props.isDark} />
-                    ))}
-
-                </Slider>
-
             </div>
+            <Slider {...sliderConfig}>
+                {props.images.map((image) => (
+                    <Poster {...image} isDark={props.isDark} />
+                ))}
+
+            </Slider>
 
         </>
     )

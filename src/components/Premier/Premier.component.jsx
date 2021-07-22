@@ -9,7 +9,7 @@ import Poster from '../Poster/poster.component';
 import PremierImage from '../../config/TempPosters.config';
 
 
-const Premier = () => {
+const Premier = (props) => {
     const settings = {
         infinite: false,
         speed: 500,
@@ -35,7 +35,7 @@ const Premier = () => {
         {
             breakpoint: 480,
             settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
             },
         },
@@ -46,7 +46,7 @@ const Premier = () => {
     return (
         <>
             <div className="flex flex-col item-start text-white md:ml-2 ">
-                <h3 className="text-xl font-bold">
+                <h3 className="text-2xl font-bold">
                     Premiers
                 </h3>
                 <p className="text-sm">
@@ -54,7 +54,7 @@ const Premier = () => {
                 </p>
             </div>
             <Slider {...settings}>
-                {PremierImage.map((image) => (
+                {props.images.map((image) => (
                     <Poster {...image} isDark="true" />
                 ))}
 
