@@ -1,6 +1,8 @@
-import React from 'react'
+import axios from 'axios';
+import Slider from 'react-slick';
+import React, { useContext, useState, useEffect } from 'react'
 import { FaCcVisa, FaCcApplePay } from "react-icons/fa"
-
+import { useParams } from 'react-router-dom';
 
 
 //component
@@ -13,7 +15,46 @@ import PosterSlider from "../components/PosterSlider/PosterSlider.components";
 import TempPoster from "../config/TempPosters.config";
 
 
+//context
+import { MovieContext } from '../context/movie.context';
+
+
+
 const MoviePage = () => {
+    const { id } = useParams();
+    const { movie } = useContext(MovieContext);
+    const [cast, setCast] = useState([]);
+    const [similarMovies, setSimilarMovies] = useState([]);
+    const [recommended, setRecommended] = useState([]);
+
+    useEffect(() => {
+        const requestCast = async () => {
+            const getMovieCast = await axios.get(`/movie/${id}/credits`);
+            setCast(getMovieCast.data.cast);
+        }
+        requestCast();
+    }, [id])
+
+
+    useEffect(() => {
+        const requestSimilarMovies = async () => {
+            const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
+            setSimilarMovies(getSimilarMovies.data.results);
+        };
+
+        requestSimilarMovies();
+    }, [id]);
+
+    useEffect(() => {
+        const requestRecommendedMovies = async () => {
+            const getRecommendedMovies = await axios.get(`/movie/${id}/recommendations`);
+            setRecommended(getRecommendedMovies.data.results);
+        };
+
+        requestRecommendedMovies();
+    }, [id]);
+
+
 
     const settings = {
         infinite: false,
@@ -47,6 +88,38 @@ const MoviePage = () => {
         },
         ],
     };
+    const settingsCast = {
+        infinite: false,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 3,
+                infinite: true,
+            },
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2,
+                initialSlide: 2,
+            },
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true,
+            },
+        },
+        ],
+    };
 
     return (
         <>
@@ -54,7 +127,7 @@ const MoviePage = () => {
             <div className="my-12 container px-4 lg:ml-20 lg:w-2/3">
                 <div className="flex flex-col items-start gap-3">
                     <h2 className="text-gray-800 font-bold text-lg md:text-2xl">About the movie</h2>
-                    <p>Kong is on a journey to find his true home but gets in the way of an enraged Godzilla. The epic clash is only the beginning of the mystery that lies within the core of the Earth.</p>
+                    <p>{movie.overview}</p>
                 </div>
                 <div className="my-8">
                     <hr />
@@ -84,20 +157,16 @@ const MoviePage = () => {
                 </div>
                 <div>
                     <h2 className="text-gray-800 font-bold text-lg md:text-2xl mb-4">Cast & Crew</h2>
-                    <div className="flex flex-wrap gap-4">
-                        <Cast
-                            image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/alexander-skarsgard-1057902-24-03-2017-13-51-10.jpg"
-                            castName="Alexander Skarsgard"
-                            role="Nathan Lind" />
-                        <Cast
-                            image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/rebecca-hall-7076-11-09-2017-05-49-56.jpg"
-                            castName="Rebecca Hall"
-                            role="Ilena" />
-                        <Cast
-                            image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/alexander-skarsgard-1057902-24-03-2017-13-51-10.jpg"
-                            castName="Alexander Skarsgard"
-                            role="Nathan Lind" />
-                    </div>
+                    {/*<div className="flex flex-wrap gap-4">*/}
+                    <Slider {...settingsCast} >
+                        {cast.map((castdata) => (
+                            <Cast
+                                image={`https://image.tmdb.org/t/p/original/${castdata.profile_path}`}
+                                castName={castdata.original_name}
+                                role={castdata.character} />
+                        ))}
+                    </Slider>
+                    {/*</div>*/}
                 </div>
                 <div className="my-8">
                     <hr />
@@ -105,7 +174,7 @@ const MoviePage = () => {
                 <div>
                     <PosterSlider
                         config={settings}
-                        images={TempPoster}
+                        images={similarMovies}
                         title="You might also like"
                         isDark={false}
                     />
@@ -116,7 +185,7 @@ const MoviePage = () => {
                 <div>
                     <PosterSlider
                         config={settings}
-                        images={TempPoster}
+                        images={recommended}
                         title="BMS XCLUSIV"
                         isDark={false}
                     />

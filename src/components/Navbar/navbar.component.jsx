@@ -2,6 +2,7 @@ import React from "react";
 import { BiChevronRight, BiSearch, BiMenu } from "react-icons/bi";
 import { FiChevronDown } from "react-icons/fi";
 
+
 const NavSm = () => {
     return (
         <>
@@ -41,13 +42,17 @@ const NavLg = () => {
         <>
             <div className="container mx-auto px-4 xl:px-20 flex items-center justify-between">
                 <div className="flex items-center w-1/2 gap-3">
+
                     <div className="w-12 h-12">
+
                         <img
                             src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
                             alt="logo"
                             className="w-full h-full"
                         />
+
                     </div>
+
                     <div className="w-full flex items-center gap-4 bg-white py-2 px-3 rounded-md" >
                         <BiSearch className="" />
                         <input type="search"

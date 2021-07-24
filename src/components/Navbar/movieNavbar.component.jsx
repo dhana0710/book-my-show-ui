@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { BiSearch, BiMenu, BiShareAlt } from "react-icons/bi";
 import { FiChevronDown, FiShare2 } from "react-icons/fi";
+import { NavLink } from 'react-router-dom';
 
 
 //context
@@ -29,13 +30,15 @@ const NavLg = () => {
         <>
             <div className="container mx-auto px-4 xl:px-20 flex items-center justify-between">
                 <div className="flex items-center w-1/2 gap-3">
-                    <div className="w-12 h-12">
-                        <img
-                            src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
-                            alt="logo"
-                            className="w-full h-full"
-                        />
-                    </div>
+                    <NavLink to="/">
+                        <div className="w-12 h-12">
+                            <img
+                                src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
+                                alt="logo"
+                                className="w-full h-full"
+                            />
+                        </div>
+                    </NavLink>
                     <div className="w-full flex items-center gap-4 bg-white py-2 px-3 rounded-md" >
                         <BiSearch className="" />
                         <input type="search"
