@@ -7,11 +7,16 @@ import './index.css';
 import App from './App';
 
 
+//context
+import MovieProvider from './context/movie.context';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <MovieProvider>
+        <App />
+      </MovieProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

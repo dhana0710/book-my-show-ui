@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BiSearch, BiMenu, BiShareAlt } from "react-icons/bi";
 import { FiChevronDown, FiShare2 } from "react-icons/fi";
 
+
+//context
+import { MovieContext } from '../../context/movie.context';
+
 const NavSm = () => {
+    const { movie } = useContext(MovieContext);
     return (
         <>
 
             <div className="text-white flex items-center justify-between">
                 <div>
-                    <h3 className="text-lg ">It All start Here!</h3>
+                    <h3 className="text-lg md:text-xl font-bold">{movie.original_title}</h3>
                 </div>
                 <div className="w-6 h-6">
                     <BiShareAlt className="w-full h-full" />
                 </div>
             </div>
-
-
-
         </>
     );
 
@@ -58,7 +60,7 @@ const NavLg = () => {
 const MovieNavbar = () => {
     return (
         <>
-            <nav className="absolute inset-x-0 z-30 bg-opacity-20 backdrop-filter backdrop-blur-lg lg:relative lg:bg-bms-700 p-4">
+            <nav className="absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative lg:bg-bms-700 p-4">
                 <div className="md:hidden">
                     {/*{Mobile Screen}*/}
                     <NavSm />
