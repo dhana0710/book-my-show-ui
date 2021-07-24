@@ -16,7 +16,7 @@ const MovieHero = () => {
                     <div className="absolute z-20 bottom-4 ">
                         <MovieInfo />
                     </div>
-                    <div className="w-full h-48 bg-opacity-60  absolute bg-black z-10 bottom-0" />
+                    <div className="w-full h-48 bg-opacity-60  absolute bg-black z-20 bottom-0" />
                     <img
                         src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                         alt="poster"
